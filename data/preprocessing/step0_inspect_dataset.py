@@ -1,4 +1,15 @@
  
+"""
+DRIFTLOCK — Phase 1.3
+Step 0: Dataset Inspection
+ 
+Run this FIRST before any other script.
+It tells you exactly what is in your CSV so the rest of the
+pipeline can be written correctly.
+ 
+Usage:
+    python step0_inspect_dataset.py --csv path/to/NF-ToN-IoT-v2.csv
+"""
 
 import argparse
 import pandas as pd
