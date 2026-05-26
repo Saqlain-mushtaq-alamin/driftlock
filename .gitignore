@@ -23,3 +23,7 @@ results/*.json
 
 # ChromaDB
 chroma/
+
+
+# Ignore large/raw dataset CSV files
+data/raw/*.csv
