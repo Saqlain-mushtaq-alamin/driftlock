@@ -27,3 +27,5 @@ chroma/
 
 # Ignore large/raw dataset CSV files
 data/raw/*.csv
+data/processed/*.csv
+data/processed/*.json
