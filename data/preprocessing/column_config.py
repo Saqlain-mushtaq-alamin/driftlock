@@ -10,7 +10,7 @@ NF-ToN-IoT-v2 typically uses these names — but confirm with step0 output.
 
 # ── The column that contains the ground-truth label ─────────────────────────
 # Common values: 'Label', 'Attack', 'attack_cat', 'Category'
-LABEL_COL = "Label"
+LABEL_COL = "Attack"
 
 # ── Source IP column name ────────────────────────────────────────────────────
 SRC_IP_COL = "IPV4_SRC_ADDR"
@@ -47,14 +47,11 @@ TCP_FLAGS_COL = "TCP_FLAGS"   # or None
 BENIGN_LABEL = "Benign"   # or "0", "Normal", "BENIGN" — check step0 output
 
 ATTACK_CATEGORIES = [
-    "DDoS",
-    "Ransomware",
-    "Scanning",
-    "MITM",
-    "XSS",
-    "Backdoor",
-    "Injection",
-    "Password",
+    "dos",
+    "ransomware",
+    "scanning",
+    "xss",
+    "password",
 ]
 # If the dataset uses different strings (e.g. "DoS" instead of "DDoS"),
 # update the list above to match the step0 output exactly.

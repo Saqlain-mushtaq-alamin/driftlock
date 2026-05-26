@@ -9,6 +9,7 @@ pipeline can be written correctly.
  
 Usage:
     python step0_inspect_dataset.py --csv path/to/NF-ToN-IoT-v2.csv
+    python data/preprocessing/step0_inspect_dataset.py --csv data/raw/NF-ToN-IoT-v2.csv
 """
 
 import argparse
