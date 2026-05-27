@@ -48,10 +48,14 @@ BENIGN_LABEL = "Benign"   # or "0", "Normal", "BENIGN" — check step0 output
 
 ATTACK_CATEGORIES = [
     "dos",
+    "ddos",
     "ransomware",
     "scanning",
     "xss",
     "password",
+    "backdoor",
+    "injection",
+    "mitm",
 ]
 # If the dataset uses different strings (e.g. "DoS" instead of "DDoS"),
 # update the list above to match the step0 output exactly.
