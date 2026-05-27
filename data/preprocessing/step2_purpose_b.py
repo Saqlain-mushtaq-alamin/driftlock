@@ -63,8 +63,12 @@ def score_ddos(df: pd.DataFrame) -> pd.Series:
              high SRC_TO_DST_AVG_THROUGHPUT.
     """
     pkt_ratio  = df[PKTS_OUT_COL] / (df[PKTS_IN_COL] + 1)
-    throughput = df["SRC_TO_DST_AVG_THROUGHPUT"] if \
-        "SRC_TO_DST_AVG_THROUGHPUT" in df.columns else 0
+    throughput = (
+    df["SRC_TO_DST_AVG_THROUGHPUT"]
+    if "SRC_TO_DST_AVG_THROUGHPUT" in df.columns
+    else pd.Series(0.0, index=df.index)
+)
+
     short_dur  = 1 / (df[DURATION_COL] + 1)   # shorter = higher score
     return (
         _norm(df[PKTS_OUT_COL]) * 0.35 +
@@ -93,8 +97,11 @@ def score_scanning(df: pd.DataFrame) -> pd.Series:
     """
     small_payload = 1 / (df[BYTES_OUT_COL] + 1)   # smaller = more scan-like
     short_dur     = 1 / (df[DURATION_COL] + 1)
-    small_pkts    = 1 / (df["LONGEST_FLOW_PKT"] + 1) if \
-        "LONGEST_FLOW_PKT" in df.columns else 0
+    small_pkts = (
+    1 / (df["LONGEST_FLOW_PKT"] + 1)
+    if "LONGEST_FLOW_PKT" in df.columns
+    else pd.Series(0.0, index=df.index)
+)
     return (
         _norm(small_payload) * 0.40 +
         _norm(short_dur)     * 0.35 +
